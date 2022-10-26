@@ -49,6 +49,10 @@ createApp ({
             } else {
                 this.currentSlide--;
             }
-        }
+        },
+
+        showSlide(clickedSlide) {
+            this.currentSlide = clickedSlide;
+        } 
     }
 }).mount('#app');
