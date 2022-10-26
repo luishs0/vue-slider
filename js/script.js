@@ -1,12 +1,6 @@
-const slides = [
-    
-];
+const { createApp } = Vue;
 
-console.log(slides);
-
-const { createApp } = Vue
-
-createApp({
+createApp ({
     data() {
       return {
         slides: [
@@ -35,7 +29,26 @@ createApp({
                 title: 'Paradise',
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
             }
-        ]
-      }
+        ],
+        currentSlide: 0,
+      };
+    },
+
+    methods: {
+        showNext: function(){
+            if (this.currentSlide < (this.slides.length - 1)) {
+                this.currentSlide++;
+            } else {
+                this.currentSlide = 0;
+            }
+        },
+
+        showPrev: function(){
+            if (this.currentSlide === 0) {
+                this.currentSlide = this.slides.length - 1;
+            } else {
+                this.currentSlide--;
+            }
+        }
     }
-}).mount('#app')
+}).mount('#app');
